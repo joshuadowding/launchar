@@ -14,4 +14,4 @@ Standards-Version: 4.1.1
 Package: com.github.abiosoft.launchar
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
-Description: Simple Application Launcher
+Description: A simple application launcher built with GTK.
