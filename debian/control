@@ -1,0 +1,15 @@
+Source: com.github.abiosoft.launchar
+Section: x11
+Priority: optional
+Maintainer: Joshua Dowding <joshuadowding@outlook.com>
+Build-Depends: debhelper (>= 9),
+               gettext,
+               libgtk-3-dev,
+               meson,
+               valac (>= 0.40.0)
+Standards-Version: 4.1.1
+
+Package: com.github.abiosoft.launchar
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: Simple Application Launcher
