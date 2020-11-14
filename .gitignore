@@ -1,6 +1,9 @@
+# build files
 build/
 .buildconfig
 
+# beautifier files
+.beautifier/
+
 # backup files
 *~
-
