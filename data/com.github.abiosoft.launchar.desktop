@@ -1,10 +1,11 @@
 [Desktop Entry]
 Name=Launchar
-Comment=Gtk Application Launcher
 GenericName=Launcher
+Comment=Simple Application Launcher
 Exec=launchar
 Icon=start-here
 Type=Application
 StartupNotify=true
 Categories=GNOME;
 MimeType=text/plain;
+Keywords=Launchar;
