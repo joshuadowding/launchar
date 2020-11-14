@@ -2,10 +2,10 @@
 
 <component type="desktop">
   <id>com.github.abiosoft.launchar</id>
-  <metadata_license>MIT</metadata_license>
+  <metadata_license>Apache-2.0</metadata_license>
   <name>Launchar</name>
   <description>
-    <p>Simple Application Launcher</p>
+    <p>A simple application launcher built with GTK.</p>
   </description>
 </component>
 
