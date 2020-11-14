@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component type="desktop">
+  <id>com.github.abiosoft.launchar</id>
+  <metadata_license>MIT</metadata_license>
+  <name>Launchar</name>
+  <description>
+    <p>Simple Application Launcher</p>
+  </description>
+</component>
+

@@ -4,3 +4,4 @@ gnome = import('gnome')
 sources += gnome.compile_resources('hello-resources',
     'gresource.xml',
 )
+
