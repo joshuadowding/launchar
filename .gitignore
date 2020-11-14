@@ -2,6 +2,10 @@
 build/
 builddir/
 .buildconfig
+debhelper-build-stamp
+*.dsc
+*.tar.gz
+*.tar.xz
 
 # beautifier files
 .beautifier/

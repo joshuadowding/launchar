@@ -2,7 +2,7 @@ Format: https://dep.debian.net/deps/dep5
 Upstream-Name: com.github.abiosoft.launchar
 Source: https://github.com/joshuadowding/launchar
 
-Files: src/* data/* debian/*
+Files: src/* data/* debian/* resources/*
 Copyright: 2020 Joshua Dowding <joshuadowding@outlook.com>
 License: GPL-3.0+
 
