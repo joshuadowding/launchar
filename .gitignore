@@ -12,3 +12,6 @@ debhelper-build-stamp
 
 # backup files
 *~
+
+#editor files
+.editorconfig
