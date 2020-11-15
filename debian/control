@@ -13,5 +13,6 @@ Standards-Version: 4.1.1
 
 Package: com.github.joshuadowding.lawnchair
 Architecture: any
+Priority: optional
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Description: A simple application launcher.
