@@ -1,7 +1,7 @@
-launchar
+Lawnchair
 --------
 
-A simple application launcher built with GTK.
+A simple application launcher.
 
 ## Screenshot
 
@@ -9,7 +9,7 @@ A simple application launcher built with GTK.
 
 ## Potential Use Cases
 
-* Some open-source desktop environments limit the application launcher to the primary display; pin launchar to a multi-screen dock (or assign it a shortcut key) and it launches on the current display.
+* Some open-source desktop environments limit the application launcher to the primary display; pin Lawnchair to a multi-screen dock (or assign it a shortcut key) and it launches on the current display.
 * An alternative launcher for tiling window managers.
 
 ## Build
@@ -40,8 +40,4 @@ Fedora
 ```
 $ sudo dnf install gtk3-devel vala meson ninja-build libgee-devel
 ```
-
-## Donate
-
-Bitcoin:`1GTHYEDiy2C7RzXn5nY4wVRaEN2GvLjwZN` | [PayPal](https://paypal.me/abiosoft)
 

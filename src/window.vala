@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-[GtkTemplate (ui = "/com/github/abiosoft/launchar/window.glade")]
+[GtkTemplate (ui = "/com/github/joshuadowding/lawnchair/window.glade")]
 public class LauncharWindow: Gtk.ApplicationWindow {
 
     [GtkChild]

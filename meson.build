@@ -1,10 +1,11 @@
 project(
-    'com.github.abiosoft.launchar', ['c', 'vala'],
-    version: '0.1.2',
+    'com.github.joshuadowding.lawnchair',
+    ['c', 'vala'],
+    version: '0.1.3',
     meson_version: '>= 0.40.0',
 )
 
-binary = 'launchar'
+binary = 'lawnchair'
 
 # variable initiated, to be used in subdirectories
 sources = []

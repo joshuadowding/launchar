@@ -1,4 +1,4 @@
-Source: com.github.abiosoft.launchar
+Source: com.github.joshuadowding.lawnchair
 Section: x11
 Priority: optional
 Maintainer: Joshua Dowding <joshuadowding@outlook.com>
@@ -11,7 +11,7 @@ Build-Depends: cmake (>= 2.8),
                valac (>= 0.40.0)
 Standards-Version: 4.1.1
 
-Package: com.github.abiosoft.launchar
+Package: com.github.joshuadowding.lawnchair
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
-Description: A simple application launcher built with GTK.
+Description: A simple application launcher.

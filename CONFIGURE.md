@@ -1,7 +1,7 @@
 configure
 ---------
 
-config files are expected in `$XDG_CONFIG_HOME/launchar` or `$HOME/.config/launchar` if `$XDG_CONFIG_HOME` is unset.
+config files are expected in `$XDG_CONFIG_HOME/lawnchair` or `$HOME/.config/lawnchair` if `$XDG_CONFIG_HOME` is unset.
 
 ## Appearance
 
@@ -16,10 +16,9 @@ IconSize=96     # icon size in pixels
 Cols=3          # number of columns in the application grid.
 ```
 
-
 ## Commands
 
-launchar can be extended with configurable commands in `commands.ini`. A command is triggered by appending `,<keyword>` to the search filter.
+Lawnchair can be extended with configurable commands in `commands.ini`. A command is triggered by appending `,<keyword>` to the search filter.
 
 Each command is an entry with the following format.
 
@@ -52,6 +51,4 @@ Command=notify-send "launching @n@"; @s@; notify-send "@n@ is done"
 The command description is displayed as you type, this can help verify the command.
 
 ![command demonstration](command.gif)
-
-
 

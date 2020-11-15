@@ -23,17 +23,21 @@ public class AppEntry {
     public Button app_button {
         get { return button; }
     }
+
     private Button button;
 
     public string app_icon {
         get { return icon; }
     }
+
     private string icon;
 
     private string name;
+
     public string app_name {
         get { return name; }
     }
+
     public string app_name_wrap () {
         return wrap_text (name);
     }
@@ -46,14 +50,17 @@ public class AppEntry {
             if (s.strip ().length == 0) {
                 continue;
             }
+
             string concat = line.concat (" ", s);
             if (concat.length > BUTTON_CHAR_WIDTH) {
                 reorder += line;
                 line = s;
                 continue;
             }
+
             line = concat;
         }
+
         if (line != "") {
             reorder += line;
         }
@@ -79,9 +86,11 @@ public class AppEntry {
     public bool run_in_terminal {
         get { return terminal; }
     }
+
     public string app_keywords {
         get { return keywords; }
     }
+
     private string keywords = "";
 
     private string desktop_file;
@@ -90,7 +99,6 @@ public class AppEntry {
         this.desktop_file = desktop_file;
         load_desktop_file ();
     }
-
 
     private void load_desktop_file () throws KeyFileError, FileError {
         KeyFile file = new KeyFile ();
@@ -124,9 +132,11 @@ public class AppEntry {
                 }
             }
         }
+
         if (no_display || type != "Application") {
             throw new FileError.INVAL ("File is not an application, type: %s, file: %s".printf(type, desktop_file));
         }
+
         name = file.get_locale_string ("Desktop Entry", "Name");
         search_name = name.down ().replace (" ", ""); // get rid of whitespace for easier filter.
         icon = file.get_locale_string ("Desktop Entry", "Icon");
@@ -149,6 +159,7 @@ public class AppEntry {
         if (file.has_key ("Desktop Entry", "Terminal")) {
             terminal = file.get_boolean ("Desktop Entry", "Terminal");
         }
+
         if (file.has_key ("Desktop Entry", "Keywords")) {
             keywords = file.get_locale_string ("Desktop Entry", "Keywords");
         }
@@ -182,7 +193,6 @@ public class AppEntry {
         label.set_justify (Gtk.Justification.CENTER);
         label.show ();
 
-
         Gtk.Box box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
 
         box.pack_start (image);
@@ -200,6 +210,7 @@ public class AppEntry {
             Instance.app = this;
             Instance.window.close ();
         });
+
         button.show ();
     }
 
@@ -217,6 +228,7 @@ static AppEntry[] get_application_buttons (string[] dirs) {
         if (unique_dirs.has_key (unique_dir)) {
             continue;
         }
+
         unique_dirs[unique_dir] = true;
         try {
             var d = File.new_for_path (Path.build_filename (dir, "applications"));
@@ -266,15 +278,17 @@ static void launch_app (string name, owned string exec, bool terminal, Extension
         Terminal t = get_term ();
         exec = string.join (" ", t.command, t.flag, exec);
     }
+
     if (extension != null) {
         exec = extension.command.replace (APP_NAME_PLACEHOLDER, name)
                 .replace (COMMAND_PLACEHOLDER, exec)
                 .replace (ARGS_PLACEHOLDER, string.joinv (" ", extension.args));
     }
+
     print (exec + "\n");
     string[] args = new string[] { "sh", "-c", exec };
 
-    try{
+    try {
         Pid child_pid;
         Process.spawn_async (null,
                              args,
@@ -301,6 +315,7 @@ static Terminal get_term () {
             return t;
         }
     }
+
     return terms[terms.length - 1];
 }
 
@@ -341,6 +356,7 @@ public class Button: Gtk.Button {
         Object ();
         this.app = app;
     }
+
     public AppEntry app;
 }
 
@@ -349,3 +365,4 @@ public struct Extension {
     string command;
     string[] args;
 }
+

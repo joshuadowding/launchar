@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <component type="desktop">
-  <id>com.github.abiosoft.launchar</id>
+  <id>com.github.joshuadowding.lawnchair</id>
   <metadata_license>Apache-2.0</metadata_license>
-  <name>Launchar</name>
+  <name>Lawnchair</name>
   <description>
-    <p>A simple application launcher built with GTK.</p>
+    <p>A simple application launcher.</p>
   </description>
 </component>
 

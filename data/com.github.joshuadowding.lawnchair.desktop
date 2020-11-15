@@ -1,11 +1,11 @@
 [Desktop Entry]
-Name=Launchar
+Name=Lawnchair
 GenericName=Launcher
-Comment=A simple application launcher built with GTK.
-Exec=launchar
+Comment=A simple application launcher.
+Exec=lawnchair
 Icon=start-here
 Type=Application
 StartupNotify=true
 Categories=GNOME;
 MimeType=text/plain;
-Keywords=Launchar;
+Keywords=Lawnchair;lawnchair;launcher;

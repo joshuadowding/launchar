@@ -63,7 +63,7 @@ static Config get_config () {
 }
 
 static KeyFile load_key_file (string file_name) throws Error {
-    string file_path = Path.build_filename (Environment.get_user_config_dir (), "launchar", file_name);
+    string file_path = Path.build_filename (Environment.get_user_config_dir (), "lawnchair", file_name);
     KeyFile key_file = new KeyFile ();
 
     if (!key_file.load_from_file (file_path, KeyFileFlags.NONE)) {
