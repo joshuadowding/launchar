@@ -1,8 +1,8 @@
-sources += [
+sources = [
     'main.vala',
     'window.vala',
     'app_entry.vala',
-    'config.vala',
+    'config.vala'
 ]
 
 # Create a new executable, list the files we want to compile, list the dependencies we need, and install

@@ -3,6 +3,7 @@ project(
     ['c', 'vala'],
     version: '0.1.3',
     meson_version: '>= 0.40.0',
+    license : 'Apache-2.0'
 )
 
 binary = 'lawnchair'
