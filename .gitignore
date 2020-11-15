@@ -1,7 +1,10 @@
 # build files
 build/
+release/
 builddir/
 .buildconfig
+*.changes
+*.buildinfo
 debhelper-build-stamp
 *.dsc
 *.tar.gz
@@ -16,3 +19,6 @@ debhelper-build-stamp
 #editor files
 .editorconfig
 
+# version control files
+.git
+.bzr
