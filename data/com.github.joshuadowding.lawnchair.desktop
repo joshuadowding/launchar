@@ -1,11 +1,11 @@
 [Desktop Entry]
 Name=Lawnchair
-GenericName=Launcher
+GenericName=Application Launcher
 Comment=A simple application launcher.
 Exec=lawnchair
 Icon=start-here
 Type=Application
-StartupNotify=true
-Categories=GNOME;
-MimeType=text/plain;
+Categories=System;
 Keywords=Lawnchair;lawnchair;launcher;
+StartupNotify=true
+MimeType=text/plain;
