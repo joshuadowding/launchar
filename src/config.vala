@@ -40,25 +40,31 @@ static Config get_config () {
     if (config != Config ()) {
         return config;
     }
+
     Config c = { dark_theme: false,
                  cols: ICON_COLS,
                  icon: ICON_SIZE,
                  commands: new HashMap < string, Command > (), };
-    try{
+
+    try {
         KeyFile file = load_key_file ("config.ini");
         if (file.has_key ("Config", "DarkTheme")) {
             c.dark_theme = file.get_boolean ("Config", "DarkTheme");
         }
+
         if (file.has_key ("Config", "IconSize")) {
             c.icon_size = file.get_integer ("Config", "IconSize");
         }
+
         if (file.has_key ("Config", "Cols")) {
             c.cols = file.get_integer ("Config", "Cols");
         }
+
         c.commands = load_commands ();
     } catch (Error e) {
         stderr.printf ("%s\n", e.message);
     }
+
     return (config = c);
 }
 
@@ -69,14 +75,17 @@ static KeyFile load_key_file (string file_name) throws Error {
     if (!key_file.load_from_file (file_path, KeyFileFlags.NONE)) {
         throw new FileError.ACCES ("unknown error, could not load config file %s".printf(file_name));
     }
+
     return key_file;
 }
 
 static Map < string, Command > load_commands () {
     var map = new HashMap < string, Command > ();
-    try{
+
+    try {
         KeyFile key_file = load_key_file ("commands.ini");
         string[] groups = key_file.get_groups ();
+
         foreach (string group in groups) {
             Command c = new Command ();
 
@@ -85,14 +94,18 @@ static Map < string, Command > load_commands () {
                 stderr.printf ("command missing for %s, ignoring...", group);
                 continue;
             }
+
             c.command = key_file.get_string (group, "Command");
             if (key_file.has_key (group, "Desc")) {
                 c.description = key_file.get_locale_string (group, "Desc");
             }
+
             map[group] = c;
         }
     } catch (Error e) {
         stderr.printf ("%s\n", e.message);
     }
+
     return map;
 }
+

@@ -173,9 +173,8 @@ public class AppEntry {
         Gtk.Image image = new Gtk.Image ();
 
         if (Path.is_absolute (app_icon)) {
-            try{
+            try {
                 Gdk.Pixbuf buf = new Gdk.Pixbuf.from_file (app_icon);
-
                 image.pixbuf = buf.scale_simple (config.icon_size, config.icon_size, Gdk.InterpType.BILINEAR);
             } catch (Error e) {
                 stderr.printf ("could not load icon for %s, error: %s\n", app_name, e.message);
@@ -184,6 +183,7 @@ public class AppEntry {
         } else {
             image.icon_name = app_icon;
         }
+
         image.set_pixel_size (config.icon_size);
         image.show ();
 
@@ -261,13 +261,15 @@ static AppEntry[] get_application_buttons (string[] dirs) {
 
 private static AppEntry get_appentry (string dir, string filename) {
     AppEntry app_entry = null;
-    try{
+    try {
         var filepath = Path.build_filename (dir, filename);
         app_entry = new AppEntry (filepath);
     } catch (FileError.INVAL e) {
+        stderr.printf ("%s - %s\n", filename, e.message);
     } catch (Error e) {
         stderr.printf ("%s - %s\n", filename, e.message);
     }
+
     return app_entry;
 }
 

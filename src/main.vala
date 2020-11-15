@@ -20,8 +20,9 @@ int main (string[] args) {
     app.activate.connect (() => {
         var win = app.active_window;
         if (win == null) {
-            win = (Instance.window = new LauncharWindow (app));
+            win = (Instance.window = new LawnchairWindow (app));
         }
+
         win.present ();
     });
 

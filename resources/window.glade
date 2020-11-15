@@ -2,7 +2,7 @@
 <!-- Generated with glade 3.38.1 -->
 <interface>
   <requires lib="gtk+" version="3.22"/>
-  <template class="LauncharWindow" parent="GtkApplicationWindow">
+  <template class="LawnchairWindow" parent="GtkApplicationWindow">
     <property name="can-focus">False</property>
     <property name="modal">True</property>
     <property name="window-position">center</property>

@@ -15,7 +15,7 @@
  */
 
 [GtkTemplate (ui = "/com/github/joshuadowding/lawnchair/window.glade")]
-public class LauncharWindow: Gtk.ApplicationWindow {
+public class LawnchairWindow: Gtk.ApplicationWindow {
 
     [GtkChild]
     Gtk.Grid application_grid;
@@ -36,7 +36,7 @@ public class LauncharWindow: Gtk.ApplicationWindow {
 
     private Config config;
 
-    public LauncharWindow (Gtk.Application app) {
+    public LawnchairWindow (Gtk.Application app) {
         Object (application: app);
         this.app = app;
         setup ();
@@ -56,20 +56,24 @@ public class LauncharWindow: Gtk.ApplicationWindow {
 
     private void setup_applications () {
         int prev_y = 0;
+
         application_grid.set_focus_child.connect ((child) => {
             auto_scroll (child, ref prev_y);
         });
+
         application_grid.key_press_event.connect ((e) => {
             if (e.keyval == Gdk.Key.Escape) {
                 search_apps.grab_focus ();
                 return true;
             }
+
             if (e.keyval == Gdk.Key.Up) {
                 if (top_row (selectedApp.app_button)) {
                     search_apps.grab_focus ();
                     return true;
                 }
             }
+
             return false;
         });
 
@@ -93,15 +97,19 @@ public class LauncharWindow: Gtk.ApplicationWindow {
             if (str.length > 1) {
                 str = str[1].split (" ");
                 var keyword = str[0].strip ().down ();
+
                 if (config.commands.has_key (keyword)) {
                     var command = config.commands[keyword];
                     search_desc.set_text (command.description);
+
                     var extension = Extension ();
                     extension.command = command.command;
+
                     var args = new string[] {};
                     for (int i =1; i < str.length; i++) {
                         args += str[i].strip ();
                     }
+
                     extension.args = args;
                     Instance.extension = extension;
                 }
@@ -126,11 +134,13 @@ public class LauncharWindow: Gtk.ApplicationWindow {
                 // no need to scroll;
                 return;
             }
+
             bool direction_up = false;
 
             if (y < prev_y) {
                 direction_up = true;
             }
+
             prev_y = y;
 
             if (y > scroll_a.height) {
@@ -154,6 +164,7 @@ public class LauncharWindow: Gtk.ApplicationWindow {
             if (selectedApp != null) {
                 selectedApp.app_button.clicked ();
             }
+
             return true;
         case Gdk.Key.Down:
             var first = first_entry ();
@@ -163,6 +174,7 @@ public class LauncharWindow: Gtk.ApplicationWindow {
             }
             break;
         }
+
         return false;
     }
 
@@ -174,6 +186,7 @@ public class LauncharWindow: Gtk.ApplicationWindow {
                 return (Button) first;
             }
         }
+
         return null;
     }
 
@@ -184,10 +197,12 @@ public class LauncharWindow: Gtk.ApplicationWindow {
             if (!(b is Button)) {
                 return false;
             }
+
             if (button == (Button) b) {
                 return true;
             }
         }
+
         return false;
     }
 
@@ -198,6 +213,7 @@ public class LauncharWindow: Gtk.ApplicationWindow {
 
         int count = 0;
         selectedApp = null;
+
         // filter
         for (int i = 0; i < applications.length; i++) {
             var app = applications[i];
@@ -209,6 +225,7 @@ public class LauncharWindow: Gtk.ApplicationWindow {
                     continue;
                 }
             }
+
             matches.add (app);
         }
 
@@ -228,32 +245,42 @@ public class LauncharWindow: Gtk.ApplicationWindow {
                     a.app_keywords.down (),
                     b.app_keywords.down (),
                 };
+
                 for (int i =0; i < str.length; i +=2) {
                     var s1 = str[i] == filter;
                     var s2 = str[i + 1] == filter;
+
                     if (s1 != s2) {
                         return s1 ? -1 : 1;
                     }
+
                     if (s1 && s2) {
                         break;
                     }
+
                     s1 = str[i].has_prefix (filter);
                     s2 = str[i + 1].has_prefix (filter);
+
                     if (s1 != s2) {
                         return s1 ? -1 : 1;
                     }
+
                     if (s1 && s2) {
                         break;
                     }
+
                     s1 = str[i].contains (filter);
                     s2 = str[i + 1].contains (filter);
+
                     if (s1 != s2) {
                         return s1 ? -1 : 1;
                     }
+
                     if (s1 && s2) {
                         break;
                     }
                 }
+
                 return strcmp (a.app_name.down (), b.app_name.down ());
             });
         }
@@ -262,6 +289,7 @@ public class LauncharWindow: Gtk.ApplicationWindow {
         foreach (AppEntry app in matches.data) {
             application_grid.attach (app.app_button, count % config.cols, count / config.cols);
             count++;
+
             if (selectedApp == null) {
                 selectedApp = app;
             }
